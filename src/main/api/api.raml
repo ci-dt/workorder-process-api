@@ -1,0 +1,31 @@
+#%RAML 0.8
+title: WorkOrder_ProcessAPI
+version: 1.0
+
+/part:
+  /{order_number}/operation:
+      get:
+        description: get the list of operations for a part
+        responses: 
+          200:
+            body: 
+              application/json:
+                schema: !include operation-schema.json
+                example: |
+                  {
+                    "order_number": "BS0472",
+                    "operations": [
+                      {
+                        "sequence_number": "140",
+                        "description": "Prüfungen im Kundenbeisein durchführen.",
+                        "done": "true",
+                        "due": "2012-04-23T18:23:43,511Z"
+                      },
+                      {
+                        "sequence_number": "150",
+                        "description": "Vakuum-Wuchtanlage abrüsten.",
+                        "done": "false",
+                        "due": "2012-04-23T18:23:43,511Z"
+                      }
+                    ]
+                  }

@@ -1,0 +1,38 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "definitions": {},
+    "id": "http://example.com/example.json",
+    "properties": {
+        "operations": {
+            "id": "/properties/operations",
+            "items": {
+                "id": "/properties/operations/items",
+                "properties": {
+                    "description": {
+                        "id": "/properties/operations/items/properties/description",
+                        "type": "string"
+                    },
+                    "done": {
+                        "id": "/properties/operations/items/properties/done",
+                        "type": "string"
+                    },
+                    "due": {
+                        "id": "/properties/operations/items/properties/due",
+                        "type": "string"
+                    },
+                    "sequence_number": {
+                        "id": "/properties/operations/items/properties/sequence_number",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "type": "array"
+        },
+        "order_number": {
+            "id": "/properties/order_number",
+            "type": "string"
+        }
+    },
+    "type": "object"
+}
