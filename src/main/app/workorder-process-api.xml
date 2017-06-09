@@ -79,7 +79,7 @@ payload]]></dw:set-payload>
 	order_number : flowVars.order_number
 }]]></dw:set-payload>
         </dw:transform-message>
-        <logger message="#[message.payloadAs(java.lang.String)]" level="INFO" doc:name="Logger"/>
+        <logger message="Log me: #[message.payloadAs(java.lang.String)]" level="INFO" doc:name="Logger"/>
     </flow>
     <apikit:mapping-exception-strategy name="api-apiKitGlobalExceptionMapping">
         <apikit:mapping statusCode="404">
