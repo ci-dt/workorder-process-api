@@ -29,6 +29,8 @@ http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/fil
             <processor-chain>
                 <http:request config-ref="SAPConn" path="/order/{order_number}/operation" method="GET" doc:name="Call SAP System API">
                     <http:request-builder>
+                        <http:query-param paramName="client_id" value="${workorder.clientid}"/>
+                        <http:query-param paramName="client_secret" value="${workorder.clientsecret}"/>
                         <http:uri-param paramName="order_number" value="#[flowVars.order_number]"/>
                     </http:request-builder>
                 </http:request>
@@ -44,6 +46,8 @@ payload]]></dw:set-payload>
                 <http:request config-ref="OpenXSConn" path="/part/{order_number}/operation" method="GET" doc:name="Call OpenXS System API">
                     <http:request-builder>
                         <http:uri-param paramName="order_number" value="#[flowVars.order_number]"/>
+                        <http:query-param paramName="client_id" value="${workorder.clientid}"/>
+                        <http:query-param paramName="client_secret" value="${workorder.clientsecret}"/>
                     </http:request-builder>
                 </http:request>
                 <dw:transform-message doc:name="Transform Message">
